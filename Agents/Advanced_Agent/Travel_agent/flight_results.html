@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Search Results - Hyderabad to Chennai</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin: 5px 0;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 30px 40px;
+            background: #f8f9ff;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            border-left: 5px solid #667eea;
+        }
+        
+        .stat-card h4 {
+            color: #667eea;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        .stat-card p {
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        h3 {
+            color: #667eea;
+            margin: 40px 0 20px 0;
+            font-size: 1.8em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0 40px 0;
+            background: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        th {
+            color: white;
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 0.5px;
+        }
+        
+        td {
+            padding: 18px 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        tbody tr:hover {
+            background-color: #f8f9ff;
+            transform: scale(1.01);
+            transition: all 0.2s ease;
+        }
+        
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+        
+        a {
+            color: white;
+            background: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        a:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .price {
+            font-weight: bold;
+            color: #27ae60;
+            font-size: 1.2em;
+        }
+        
+        .duration {
+            color: #e74c3c;
+            font-weight: 600;
+        }
+        
+        .footer {
+            background: #f5f5f5;
+            padding: 25px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .footer p {
+            margin: 5px 0;
+        }
+        
+        small {
+            color: #888;
+            font-size: 0.85em;
+        }
+        
+        .no-flights {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>✈️ Flight Search Results</h1>
+            <p><strong>Hyderabad (HYD)</strong> → <strong>Chennai (MAA)</strong></p>
+            <p>📅 March 31, 2026</p>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <h4>Total Flights Found</h4>
+                <p>15</p>
+            </div>
+            <div class="stat-card">
+                <h4>Cheapest Price</h4>
+                <p>44 EUR</p>
+            </div>
+            <div class="stat-card">
+                <h4>Shortest Duration</h4>
+                <p>1h 15m</p>
+            </div>
+            <div class="stat-card">
+                <h4>Direct Flights</h4>
+                <p>7</p>
+            </div>
+        </div>
+        
+        <div class="content">
+            
+            <h3>✈️ Direct Flights</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Route</th>
+                        <th>Date & Time</th>
+                        <th>Duration</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                <tr>
+                    <td><strong>HYD → MAA</strong><br><small>Hyderabad to Chennai</small></td>
+                    <td>2026-03-31<br>07:15 → 08:40</td>
+                    <td class="duration">1h 25m</td>
+                    <td class="price">44 EUR</td>
+                    <td><a href="https://on.kiwi.com/HcF8P9" target="_blank">Book Now</a></td>
+                </tr>
+            
+                <tr>
+                    <td><strong>HYD → MAA</strong><br><small>Hyderabad to Chennai</small></td>
+                    <td>2026-03-31<br>10:00 → 11:15</td>
+                    <td class="duration">1h 15m</td>
+                    <td class="price">44 EUR</td>
+                    <td><a href="https://on.kiwi.com/X1A3Dj" target="_blank">Book Now</a></td>
+                </tr>
+            
+                <tr>
+                    <td><strong>HYD → MAA</strong><br><small>Hyderabad to Chennai</small></td>
+                    <td>2026-03-31<br>13:40 → 15:00</td>
+                    <td class="duration">1h 20m</td>
+                    <td class="price">44 EUR</td>
+                    <td><a href="https://on.kiwi.com/oDfH1j" target="_blank">Book Now</a></td>
+                </tr>
+            
+                <tr>
+                    <td><strong>HYD → MAA</strong><br><small>Hyderabad to Chennai</small></td>
+                    <td>2026-03-31<br>16:10 → 17:25</td>
+                    <td class="duration">1h 15m</td>
+                    <td class="price">44 EUR</td>
+                    <td><a href="https://on.kiwi.com/hafRUV" target="_blank">Book Now</a></td>
+                </tr>
+            
+                <tr>
+                    <td><strong>HYD → MAA</strong><br><small>Hyderabad to Chennai</small></td>
+                    <td>2026-03-31<br>19:00 → 20:15</td>
+                    <td class="duration">1h 15m</td>
+                    <td class="price">44 EUR</td>
+                    <td><a href="https://on.kiwi.com/z4qWS8" target="_blank">Book Now</a></td>
+                </tr>
+            
+                <tr>
+                    <td><strong>HYD → MAA</strong><br><small>Hyderabad to Chennai</small></td>
+                    <td>2026-03-31<br>21:30 → 22:45</td>
+                    <td class="duration">1h 15m</td>
+                    <td class="price">44 EUR</td>
+                    <td><a href="https://on.kiwi.com/s6W2Ei" target="_blank">Book Now</a></td>
+                </tr>
+            
+                <tr>
+                    <td><strong>HYD → MAA</strong><br><small>Hyderabad to Chennai</small></td>
+                    <td>2026-03-31<br>17:45 → 19:00</td>
+                    <td class="duration">1h 15m</td>
+                    <td class="price">47 EUR</td>
+                    <td><a href="https://on.kiwi.com/K3aSFi" target="_blank">Book Now</a></td>
+                </tr>
+            
+                </tbody>
+            </table>
+        
+            
+            <h3>🔄 Connecting Flights</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Route</th>
+                        <th>Date & Time</th>
+                        <th>Duration</th>
+                        <th>Price</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                <tr>
+                    <td><strong>HYD → BLR → MAA</strong><br><small>Hyderabad to Chennai</small></td>
+                    <td>2026-03-31<br>10:30 → 13:55</td>
+                    <td class="duration">3h 25m</td>
+                    <td class="price">47 EUR</td>
+                    <td><a href="https://on.kiwi.com/LX0b7M" target="_blank">Book Now</a></td>
+                </tr>
+            
+                <tr>
+                    <td><strong>HYD → CMB → MAA</strong><br><small>Hyderabad to Chennai</small></td>
+                    <td>2026-03-31<br>12:00 → 18:35</td>
+                    <td class="duration">6h 35m</td>
+                    <td class="price">205 EUR</td>
+                    <td><a href="https://on.kiwi.com/1UW1v8" target="_blank">Book Now</a></td>
+                </tr>
+            
+                <tr>
+                    <td><strong>HYD → CJB → MAA</strong><br><small>Hyderabad to Chennai</small></td>
+                    <td>2026-03-31<br>13:45 → 20:30</td>
+                    <td class="duration">6h 45m</td>
+                    <td class="price">96 EUR</td>
+                    <td><a href="https://on.kiwi.com/LOXcAI" target="_blank">Book Now</a></td>
+                </tr>
+            
+                <tr>
+                    <td><strong>HYD → BLR → MAA</strong><br><small>Hyderabad to Chennai</small></td>
+                    <td>2026-03-31<br>14:30 → 18:05</td>
+                    <td class="duration">3h 35m</td>
+                    <td class="price">47 EUR</td>
+                    <td><a href="https://on.kiwi.com/RWShVP" target="_blank">Book Now</a></td>
+                </tr>
+            
+                <tr>
+                    <td><strong>HYD → BLR → MAA</strong><br><small>Hyderabad to Chennai</small></td>
+                    <td>2026-03-31<br>17:45 → 21:05</td>
+                    <td class="duration">3h 20m</td>
+                    <td class="price">47 EUR</td>
+                    <td><a href="https://on.kiwi.com/cWXnNM" target="_blank">Book Now</a></td>
+                </tr>
+            
+                <tr>
+                    <td><strong>HYD → VGA → BLR → MAA</strong><br><small>Hyderabad to Chennai</small></td>
+                    <td>2026-03-31<br>19:30 → 11:50</td>
+                    <td class="duration">16h 20m</td>
+                    <td class="price">75 EUR</td>
+                    <td><a href="https://on.kiwi.com/kXOvhm" target="_blank">Book Now</a></td>
+                </tr>
+            
+                <tr>
+                    <td><strong>HYD → VGA → MAA</strong><br><small>Hyderabad to Chennai</small></td>
+                    <td>2026-03-31<br>19:30 → 14:45</td>
+                    <td class="duration">19h 15m</td>
+                    <td class="price">76 EUR</td>
+                    <td><a href="https://on.kiwi.com/BKZRW6" target="_blank">Book Now</a></td>
+                </tr>
+            
+                <tr>
+                    <td><strong>HYD → VGA → BLR → MAA</strong><br><small>Hyderabad to Chennai</small></td>
+                    <td>2026-03-31<br>19:30 → 13:55</td>
+                    <td class="duration">18h 25m</td>
+                    <td class="price">80 EUR</td>
+                    <td><a href="https://on.kiwi.com/bPj13N" target="_blank">Book Now</a></td>
+                </tr>
+            
+                </tbody>
+            </table>
+        
+            
+            <div style="background: #fff4e6; border-left: 5px solid #ff9800; padding: 20px; margin: 30px 0; border-radius: 5px;">
+                <h4 style="color: #ff9800; margin-bottom: 10px;">💡 Travel Tip</h4>
+                <p><strong>Did you know?</strong> Chennai is often referred to as the "Detroit of India" due to its significant automobile industry. It's also home to Marina Beach, one of the longest urban beaches in the world!</p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Generated on February 06, 2026 at 11:45</strong></p>
+            <p>Powered by Kiwi.com Flight Search API | Data subject to availability and change</p>
+            <p style="margin-top: 10px; color: #999; font-size: 0.85em;">All prices shown are in EUR. Please check the booking site for final prices and availability.</p>
+        </div>
+    </div>
+</body>
+</html>
